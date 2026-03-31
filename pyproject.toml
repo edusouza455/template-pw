@@ -1,0 +1,20 @@
+[project]
+name = "automation-siagres"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "allure-pytest>=2.15.3",
+    "python-dotenv>=1.0.0",
+    "faker>=40.1.0",
+    "playwright>=1.57.0",
+    "pytest-html>=4.1.1",
+    "pytest-playwright>=0.7.2",
+    "pytest-xdist>=3.8.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "-v"
+testpaths = ["tests"]
