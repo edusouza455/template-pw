@@ -148,7 +148,3 @@ uv lock --upgrade
 ## Autor
 
 Criado e desenvolvido por **Eduardo Souza**.
-
-uv run playwright codegen https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-
-$env:PWDEBUG=1
