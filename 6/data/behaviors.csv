@@ -1,0 +1,5 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","Autenticação","0","Login","1","0","Login com credenciais inválidas","0"
+"0","Autenticação","0","Login","1","0","Login com campos vazios","0"
+"0","Autenticação","0","Login","2","0","Login com campos incompletos","0"
+"0","Autenticação","0","Login","1","0","Login com credenciais válidas","0"
