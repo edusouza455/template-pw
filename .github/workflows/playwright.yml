@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write # Necessário para a action peaceiris/actions-gh-pages fazer o push na branch gh-pages
+  contents: write 
 
 jobs:
   test-and-report:
@@ -16,13 +16,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v1
+        uses: astral-sh/setup-uv@v5
         with:
           version: "latest"
 
@@ -35,27 +43,28 @@ jobs:
       - name: Run Playwright tests
         run: |
           uv run pytest --alluredir=allure-results --tracing=retain-on-failure --screenshot=only-on-failure --video=retain-on-failure
-        continue-on-error: true # Continua a execução mesmo que os testes falhem para gerar o relatório
+        continue-on-error: true
         env:
-          # Carrega as credenciais e a URL base a partir dos segredos do repositório
           BASE_URL: ${{ secrets.BASE_URL }}
           USER_USERNAME: ${{ secrets.USER_USERNAME }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
-      - name: Generate Allure Report with history
+      - name: Generate Allure Report
         uses: simple-elf/allure-report-action@v1.7
-        if: always() # Garante que o relatório seja gerado mesmo com falhas nos testes
+        if: always()
         with:
           allure_results: allure-results
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
+          keep_reports: 20 # Mantém as últimas 20 execuções no histórico
 
       - name: Deploy Allure Report to GitHub Pages
-        if: always() # Garante que o deploy ocorra mesmo com falhas nos testes
+        if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: allure-history
 
       - name: Store Allure results artifact
@@ -64,4 +73,4 @@ jobs:
         with:
           name: allure-results
           path: allure-results
-          retention-days: 5 # Limpa o artefato após 5 dia para economizar espaço
+          retention-days: 3
