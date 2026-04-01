@@ -50,7 +50,7 @@ jobs:
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@v1.9
+        uses: simple-elf/allure-report-action@master
         if: always()
         with:
           allure_results: allure-results
