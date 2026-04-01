@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","4123","Validar mensagem Invalid credentials ao usar dados incorretos","tests","Wed Apr 01 19:34:43 UTC 2026","passed","Wed Apr 01 19:34:47 UTC 2026","TestLogin","test_login","",""
+"","2545","Validar mensagem Required ao preencher apenas o usuário","tests","Wed Apr 01 19:34:37 UTC 2026","passed","Wed Apr 01 19:34:39 UTC 2026","TestLogin","test_login","",""
+"","4294","Validar login com sucesso no OrangeHRM","tests","Wed Apr 01 19:34:29 UTC 2026","passed","Wed Apr 01 19:34:34 UTC 2026","TestLogin","test_login","",""
+"","2728","Validar mensagem Required ao preencher apenas a senha","tests","Wed Apr 01 19:34:34 UTC 2026","passed","Wed Apr 01 19:34:37 UTC 2026","TestLogin","test_login","",""
+"","2598","Validar mensagens Required ao tentar login sem preencher os campos","tests","Wed Apr 01 19:34:40 UTC 2026","passed","Wed Apr 01 19:34:42 UTC 2026","TestLogin","test_login","",""
