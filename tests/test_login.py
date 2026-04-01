@@ -1,7 +1,7 @@
 import pytest
 import allure
 from playwright.sync_api import Page, expect
-from pages.login.exemple_base import LoginPage
+from pages.login.login import LoginPage
 from utils.config import Config
 
 @allure.epic("Autenticação")
