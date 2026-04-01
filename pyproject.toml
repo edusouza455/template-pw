@@ -16,5 +16,5 @@ dependencies = [
 
 [tool.pytest.ini_options]
 pythonpath = "."
-addopts = "-v"
+addopts = "-v --alluredir=results"
 testpaths = ["tests"]
